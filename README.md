@@ -13,7 +13,7 @@ Big thanx to Ricardo da Costa, who is the origninal author and a great teacher.
 
 ## Contributing
 
-If you have ideas or requests - mail me at tokitaari@mailbox.org
+If you have ideas or requests - mail me at ansible_env@mailbox.org 
 
 If you fancy contributing:
 
