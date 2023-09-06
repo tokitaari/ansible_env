@@ -1,0 +1,48 @@
+dir_list:
+  - ~/.vim/autoload
+  - ~/.vim/bundle
+  - ~/.config/yamllint
+  - ~/bin
+
+repo_list:
+  - https://github.com/Yggdroot/indentLine.git
+  - https://github.com/pedrohdz/vim-yaml-folds.git
+  - https://github.com/dense-analysis/ale.git
+
+config_files:
+  vim:
+    file: vimrc
+    dest: ~/.vimrc
+
+  nano:
+    file: nanorc
+    dest: ~/.nanorc
+
+  yamllint:
+    file: config
+    dest: ~/.config/yamllint/config
+
+  tmux:
+    file: tmux.conf
+    dest: ~/.tmux.conf
+
+  monitor:
+    file: monitors.xml
+    dest: ~/.config/monitors.xml
+
+  ansible-navigator:
+    file: ansible-navigator.yml
+    dest: ~/.ansible-navigator.yml
+
+# just an example of how to add must be uncommented to work and edited to fit your needs
+#
+#other_files:
+#  bin:
+#    file: bin
+#    dest: ~/bin
+#    mode: 0755
+
+# Temp placeholder for a future feature 
+  feature:
+    file: placeholder
+    dest: /var/tmp

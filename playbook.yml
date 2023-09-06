@@ -1,0 +1,50 @@
+- name: Setup editing environment
+  hosts: localhost
+  become: false
+  gather_facts: false
+
+  tasks:
+    - name: Ensure needed python packages are installed
+      ansible.builtin.pip:
+        name: yamllint
+        state: present
+        extra_args: --user
+
+    - name: Ensure needed directories are present
+      loop: "{{ dir_list }}"
+      ansible.builtin.file:
+        path: "{{ item }}"
+        state: directory
+
+    - name: Ensure pathogen is downloaded
+      ansible.builtin.get_url:
+        url: https://tpo.pe/pathogen.vim
+        dest: ~/.vim/autoload/pathogen.vim
+
+    - name: Ensure plugin repos are cloned
+      loop: "{{ repo_list }}"
+      ansible.builtin.git:
+        repo: "{{ item }}"
+        dest: ~/.vim/bundle/{{ item.split('/')[-1] | regex_replace('\.git$') }}
+
+    - name: Ensure config files are copied
+      loop: "{{ lookup('dict', config_files) }}"
+      ansible.builtin.copy:
+        src: "{{ item['value']['file'] }}"
+        dest: "{{ item['value']['dest'] }}"
+        mode: "{{ item['value']['permissions'] | default(omit) }}"
+        backup: yes
+
+    #- name: Ensure other file types are copied
+    #  loop: "{{ lookup('dict', other_files) }}"
+    #  ansible.builtin.copy:
+    #    src: "{{ item['value']['file'] }}"
+    #    dest: "{{ item['value']['dest'] }}"
+    #    mode: "{{ item['value']['permissions'] | default(omit) }}"
+    #    backup: yes
+
+    - name: Ensure ~/.bashrc is configured
+      ansible.builtin.blockinfile:
+        path: ~/.bashrc
+        block: "{{ my_bashrc }}"
+        state: present
