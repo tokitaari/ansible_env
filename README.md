@@ -6,8 +6,9 @@ This Ansible Playbook is suitable to be used in ansible development and is teste
 * Fedora 38
 environments. 
 
-Based on https://gitlab.com/rgdacosta/classroom_env.git. Big thanx to R. da Costa, who the origninal author and a great teacher.
+Based on https://gitlab.com/rgdacosta/classroom_env.git 
 
+Big thanx to Ricardo da Costa, who is the origninal author and a great teacher.
 
 ## Contributing
 
