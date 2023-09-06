@@ -8,6 +8,7 @@ repo_list:
   - https://github.com/Yggdroot/indentLine.git
   - https://github.com/pedrohdz/vim-yaml-folds.git
   - https://github.com/dense-analysis/ale.git
+  - https://github.com/airblade/vim-gitgutter.git
 
 config_files:
   vim:
