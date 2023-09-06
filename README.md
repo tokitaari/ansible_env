@@ -4,6 +4,7 @@ This Ansible Playbook is suitable to be used in ansible development and is teste
 * RHEL 8
 * RHEL 9 
 * Fedora 38
+
 environments. 
 
 Based on https://gitlab.com/rgdacosta/classroom_env.git 
