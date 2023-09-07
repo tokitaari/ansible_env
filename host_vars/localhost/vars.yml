@@ -11,7 +11,6 @@ repo_list:
   - https://github.com/airblade/vim-gitgutter.git
   - https://github.com/airblade/vim-gitgutter.git
   - https://github.com/Xuyuanp/nerdtree-git-plugin.git
-  - https://github.com/terryma/vim-multiple-cursors.git
 
 config_files:
   vim:

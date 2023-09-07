@@ -10,20 +10,16 @@ set foldlevelstart=20
 set nu
 
 "" replace tabs with spaces in YAML files
-let @r = ':%retab|
-'
+let @r = ':%retab|'
 
 "" enable paste mode
-let @p = ':set paste
-'
+let @p = ':set paste'
 
 "" disable paste mode
-let @n = ':set nopaste
-'
+let @n = ':set nopaste'
 
 "" remove trailing spaces
-let @t = ':%s/\s\+$//e
-'
+let @t = ':%s/\s\+$//e'
 
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_sign_error = '✘'
@@ -82,16 +78,5 @@ command! -n=? -complete=file -bar Edit :call <SID>OpenFileOrExplorer('<args>')
 cnoreabbrev e Edit
 " Exit Vim if NERDTree is the only window remaining in the only tab.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-
-"" vim-multiple-cursors
-let g:multi_cursor_use_default_mapping=0
-
-" Default mapping
-let g:multi_cursor_start_word_key      = '<C-m>'
-let g:multi_cursor_select_all_word_key = '<A-m>'
-let g:multi_cursor_start_key           = 'g<C-m>'
-let g:multi_cursor_select_all_key      = 'g<A-m>'
-let g:multi_cursor_next_key            = '<C-m>'
-let g:multi_cursor_prev_key            = '<C-p>'
-let g:multi_cursor_skip_key            = '<C-x>'
-let g:multi_cursor_quit_key            = '<Esc>'
+" Close the tab if NERDTree is the only window remaining in it.
+autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
